@@ -90,7 +90,12 @@ body{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             place-items: center;
-            margin-bottom: 15px
+            margin-bottom: 15px;
+            & .icon-wrapper{
+                display: flex;
+                align-items: center;
+                }
+            }
         }
     }
 }
