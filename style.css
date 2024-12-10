@@ -188,6 +188,7 @@ hr{
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             column-gap: 10px;
+            overflow-x: auto;
             .card{
                 text-align:center
             }
@@ -209,5 +210,10 @@ hr{
                 grid-template-columns: repeat(6, 1fr);
             }
         }
+    }
+}
+@media(max-width: 1040px){
+    .weather-data{
+        gri
     }
 }
