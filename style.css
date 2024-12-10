@@ -126,18 +126,22 @@ body{
                     border-radius: 15px;
                     & .aqi-1{
                         background-color: var(--aqi-1);
+                    }
                     & .aqi-2{
                         background-color: var(--aqi-2);
+                    }
                     & .aqi-3{
                         background-color: var(--aqi-3);
+                    }
                     & .aqi-4{
                         background-color: var(--aqi-4);
+                    }
                     & .aqi-5{
                         background-color: var(--aqi-5);
                     }
                 }
             }
-            & air-indices{
+            & .air-indices{
                 display:grid;
                 grid-template-columns: repeat(4, 1fr);
                 place-items: center;
