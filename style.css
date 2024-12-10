@@ -19,6 +19,9 @@ body{
 	font-family: sans-serif;
 	padding: 0 15px;
 }
+hr{
+    margin-bottom: 10px;
+}
 .header{
     position: sticky;
     top: 0;
@@ -179,6 +182,14 @@ body{
             & .card-item{
                 display: flex;
                 justify-content: space-between;
+            }
+        }
+        & .hourly-forecast{
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            column-gap: 10px;
+            & .card{
+                text-align:center
             }
         }
     }
