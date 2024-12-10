@@ -225,6 +225,7 @@ hr{
             & .hourly-forecast{
                 grid-template-columns: repeat(4, 1fr);
             }
+        }
     }
 }
 @media(max-width: 992px){
@@ -267,11 +268,11 @@ hr{
     }
 }
 @media(max-width: 580px){
-    .weather-data{
+    .weather-data .weather-right .highlights .air-indices{
         grid-template-columns: repeat(4, 1fr);
     }
 }
-@media(max-width: 992px){
+@media(max-width: 520px){
     .weather-data .weather-right .highlights{
         & .card:nth-of-type(3),
         & .card:nth-of-type(4),
