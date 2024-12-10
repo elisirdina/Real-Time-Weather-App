@@ -14,3 +14,11 @@ body{
 	font-family: sans-serif;
 	padding: 0 15px;
 }
+.header{
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
