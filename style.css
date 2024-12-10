@@ -184,12 +184,11 @@ hr{
                 justify-content: space-between;
             }
         }
-        .hourly-forecast{
+        & .hourly-forecast{
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             column-gap: 10px;
-            overflow-x: auto;
-            .card{
+            & .card{
                 text-align:center
             }
         }
@@ -214,6 +213,17 @@ hr{
 }
 @media(max-width: 1040px){
     .weather-data{
-        gri
+        grid-template-columns: repeat(2, 1fr);
+        & .weather-right{
+            grid-column: span 1;
+            & .highlights{
+                grid-template-columns: repeat(2, 1fr);
+                & .card:nth-of-type(1){
+                    grid-column: span 2;
+                }
+            }
+            & .hourly-forecast{
+                grid-template-columns: repeat(4, 1fr);
+            }
     }
 }
