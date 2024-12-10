@@ -88,7 +88,7 @@ body{
         }
         & .forecast-item{
             display: grid;
-            grid-template-columns: repeat(3, 4fr);
+            grid-template-columns: repeat(3, 1fr);
             place-items: center;
             margin-bottom: 15px;
             & .icon-wrapper{
