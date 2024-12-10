@@ -126,18 +126,33 @@ body{
                     border-radius: 15px;
                     & .aqi-1{
                         background-color: var(--aqi-1);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        text-align: center;
                     }
                     & .aqi-2{
                         background-color: var(--aqi-2);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        text-align: center;
                     }
                     & .aqi-3{
                         background-color: var(--aqi-3);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        text-align: center;
                     }
                     & .aqi-4{
                         background-color: var(--aqi-4);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        text-align: center;
                     }
                     & .aqi-5{
                         background-color: var(--aqi-5);
+                        padding: 5px 10px;
+                        border-radius: 15px;
+                        text-align: center;
                     }
                 }
             }
