@@ -194,3 +194,20 @@ hr{
         }
     }
 }
+@media(max-width: 1100px){
+    .weather-data{
+        grid-template-columns: repeat(3, 1fr);
+        & .weather-right{
+            grid-column: span 2;
+            & .highlights{
+                grid-template-columns: repeat(3, 1fr);
+                & .card:nth-of-type(1){
+                    grid-column: span 3;
+                }
+            }
+            & .hourly-forecast{
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    }
+}
