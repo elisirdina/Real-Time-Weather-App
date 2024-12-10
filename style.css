@@ -254,3 +254,15 @@ hr{
         }
     }
 }
+@media(max-width: 660px){
+    .header{
+        flex-direction: column;
+        & h2{
+            margin-bottom: 8px;
+        }
+        & #city_input, #searchBtn, #locationBtn{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
