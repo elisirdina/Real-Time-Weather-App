@@ -164,7 +164,7 @@ body{
                     text-align: center;
                 }
             }
-            &. sunrise-sunset{
+            & .sunrise-sunset{
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 & .item{
@@ -173,9 +173,13 @@ body{
                     gap: 10px;
                     & h2{
                         margin-top: 15px;
-                        
                     }
                 }
+            }
+            & .card-item{
+                display: flex;
+                justify-content: space-between;
+            }
         }
     }
 }
