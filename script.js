@@ -134,7 +134,7 @@ function getWeatherDetails(name, lat, lon, country, state){
     });
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
-        
+    
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
             let forecastDate = new Date(forecast.dt_txt).getDate();
@@ -142,11 +142,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                 return uniqueForecastDays.push(forecastDate);
             }
         });
-        console.log(fiveDaysForecast);  // Check if filtering is working correctly
-
-        fiveDaysForecastCard.innerHTML = '';  // Clear previous content
-
-        // Check if the data is available before proceeding to render
+        fiveDaysForecastCard.innerHTML = '';
         if (fiveDaysForecast.length > 0) {
             for (let i = 0; i < fiveDaysForecast.length; i++) {
                 let date = new Date(fiveDaysForecast[i].dt_txt);
