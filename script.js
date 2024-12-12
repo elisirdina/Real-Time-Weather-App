@@ -161,6 +161,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                     </div>
                 `;
             }
+        }
     }).catch(() => {
         alert('Failed to fetch weather forecast');
     });
