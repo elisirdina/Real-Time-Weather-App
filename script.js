@@ -134,6 +134,7 @@ function getWeatherDetails(name, lat, lon, country, state){
     });
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
+        console.log(data);
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
             let forecastDate = new Date(forecast.dt_txt).getDate();
