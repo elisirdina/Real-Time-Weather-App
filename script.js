@@ -38,7 +38,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                 <i class="fa-regular fa-wind fa-3x"></i>
                 <div class="item">
                     <p>PM2.5</p>
-                    <h2>${pm2_5}</h2>
+                    <h2>{${pm2_5}</h2>
                 </div>
                 <div class="item">
                     <p>PM10</p>
@@ -135,22 +135,21 @@ function getWeatherDetails(name, lat, lon, country, state){
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
         console.log(data);
+        
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
-            let forecastDate = new Date(forecast.dt_txt);
-            let formattedDate = `${forecastDate.getFullYear()}-${forecastDate.getMonth()}-${forecastDate.getDate()}`;
-            if (!uniqueForecastDays.includes(formattedDate)) {
-                uniqueForecastDays.push(formattedDate);
-                return true; // Keep the forecast for that date
+            let forecastDate = new Date(forecast.dt_txt).getDate();
+            if(!uniqueForecastDays.includes(forecastDate)){
+                return uniqueForecastDays.push(forecastDate);
             }
-            return false; // Exclude if already added
         });
-        console.log(fiveDaysForecast);
+        console.log(fiveDaysForecast);  // Check if filtering is working correctly
+
         fiveDaysForecastCard.innerHTML = '';  // Clear previous content
 
         // Check if the data is available before proceeding to render
-        if (fiveDaysForecast.length > 1) {
-            for (let i = 1; i < fiveDaysForecast.length; i++) {
+        if (fiveDaysForecast.length > 0) {
+            for (let i = 0; i < fiveDaysForecast.length; i++) {
                 let date = new Date(fiveDaysForecast[i].dt_txt);
                 fiveDaysForecastCard.innerHTML += `
                     <div class="forecast-item">
@@ -163,11 +162,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                     </div>
                 `;
             }
-        } else {
-            console.log('No forecast data available.');
-        }
-    })
-    .catch(() => {
+    }).catch(() => {
         alert('Failed to fetch weather forecast');
     });
 }
