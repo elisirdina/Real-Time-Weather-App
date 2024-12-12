@@ -15,9 +15,9 @@ hourlyForecastCard = document.querySelector('.hourly-forecast'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
-    letFORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={api_key}`,
-    WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={api_key}`,
-    AIR_POLLUTION_API_URL = `httpS://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid={api_key}`,
+    let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}`,
+        WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`,
+        AIR_POLLUTION_API_URL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`,
     days = [
         'Sunday',
         'Monday',
@@ -198,7 +198,7 @@ function getCityCoordinates(){
     let cityName = cityInput.value.trim();
     cityInput.value = '';
     if(!cityName) return;
-    let GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid={api_key}`;
+    let GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
     fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
         let {name, lat, lon, country, state} = data[0];
         getWeatherDetails(name, lat, lon, country, state);
@@ -210,7 +210,7 @@ function getCityCoordinates(){
 function getUserCoordinates(){
     navigator.geolocation.getCurrentPosition(position => {
         let {latitude, longitude} = position.coords;
-        let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid={api_key}`;
+        let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
 
         fetch(REVERSE_GEOCODING_URL).then(res => res.json()).then(data => {
             let {name, country, state} = data[0];
