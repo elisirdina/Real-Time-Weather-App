@@ -33,7 +33,7 @@ function getWeatherDetails(name, lat, lon, country, state){
 
     fetch(WEATHER_API_URL).then(res => res.json()).then(data => {
         let date = new Date();
-        currentWeatherCard.innerHTML =
+        currentWeatherCard.innerHTML = `
             <div class="current-weather">
                 <div class=""details">
                     <p>Now</p>
@@ -49,7 +49,7 @@ function getWeatherDetails(name, lat, lon, country, state){
                 <p><i class="fa-light fa-calendar"></i> ${days[date.getDay()]}, ${date.getDate()}, ${months[date.getMonth()]} ${date.getFullYear()}</p>
                 <p><i class="fa-light fa-location-dot"></i> ${name}, ${country}</p>
             </div>
-        };
+        `;
     }).catch(() => {
         alert('Failed to fetch current weather');
     });
@@ -65,7 +65,7 @@ function getWeatherDetails(name, lat, lon, country, state){
         fiveDaysForecastCard.innerHTML = '';
         for(i = 1; i < fiveDaysForecast.length; i++){
             let date = new Date(fiveDaysForecast[i].dt_txt);
-            fiveDaysForecastCard.innerHTML +=
+            fiveDaysForecastCard.innerHTML += `
                 <div class="forecast-item">
                     <div class="icon-wrapper">
                         <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" alt="">
@@ -74,10 +74,10 @@ function getWeatherDetails(name, lat, lon, country, state){
                     <p>${date.getDate()} ${months[date.getMonth()]}</p>
                     <p>${days[date.getDay()]}</p>
                 </div>
-            ;
+            `;
         }
     }).catch(() => {
-        alert('Failed to fetch weatherforecast');
+        alert('Failed to fetch weather forecast');
     });
 }
 
