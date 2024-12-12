@@ -153,16 +153,13 @@ function getWeatherDetails(name, lat, lon, country, state){
         }
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
-            let forecastDate = new Date(forecast.dt_txt);
-            let formattedDate = `${forecastDate.getFullYear()}-${forecastDate.getMonth()}-${forecastDate.getDate()}`;
-                if (!uniqueForecastDays.includes(formattedDate)) {
-                uniqueForecastDays.push(formattedDate);
-                return true; // Keep the forecast for that date
+            let forecastDate = new Date(forecast.dt_txt).getDate();
+            if(!uniqueForecastDays.includes(forecastDate)){
+                return uniqueForecastDays.push(forecastDate);
             }
-            return false; // Exclude if already added
         });
         fiveDaysForecastCard.innerHTML = '';
-        for(i = 0; i < fiveDaysForecast.length; i++){
+        for(i = 1; i < fiveDaysForecast.length; i++){
             let date = new Date(fiveDaysForecast[i].dt_txt);
             fiveDaysForecastCard.innerHTML += `
                 <div class="forecast-item">
