@@ -175,6 +175,11 @@ function getWeatherDetails(name, lat, lon, country, state){
                 </div>
             `;
         }
+        fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
+            console.log(data); // Add this to check the response structure
+            // Existing logic continues...
+        });
+        console.log(fiveDaysForecastCard);
     }).catch(() => {
         alert('Failed to fetch weather forecast');
     });
