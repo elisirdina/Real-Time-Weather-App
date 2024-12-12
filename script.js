@@ -149,7 +149,7 @@ function getWeatherDetails(name, lat, lon, country, state){
         fiveDaysForecastCard.innerHTML = '';  // Clear previous content
 
         // Check if the data is available before proceeding to render
-        if (fiveDaysForecast.length > 0) {
+        if (fiveDaysForecast.length > 1) {
             for (let i = 1; i < fiveDaysForecast.length; i++) {
                 let date = new Date(fiveDaysForecast[i].dt_txt);
                 fiveDaysForecastCard.innerHTML += `
