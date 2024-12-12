@@ -112,7 +112,7 @@ function getWeatherDetails(name, lat, lon, country, state){
         `;
         let {sunrise, sunset} = data.sys,
         {timezone, visibility} = data,
-        {humidity, pressure, fells_like} = data.main,
+        {humidity, pressure, feels_like} = data.main,
         {speed} = data.wind,
         sRiseTime = moment.utc(sunrise, 'X').add(timezone, 'seconds').format('hh:mm A'),
         sSetTime = moment.utc(sunset, 'X').add(timezone, 'seconds').format('hh:mm A');
