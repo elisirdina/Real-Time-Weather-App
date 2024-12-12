@@ -1,6 +1,6 @@
 let cityInput = document.getElementById('city_input'),
 searchBtn = document.getElementById('searchBtn'),
-api_key = 'c014a189f4ff662dc25e56c2b086ae08'
+api_key = 'c014a189f4ff662dc25e56c2b086ae08';
 
 function getCityCoordinates(){
     let cityName = cityInput.value.trim();
