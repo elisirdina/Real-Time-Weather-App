@@ -142,8 +142,11 @@ function getWeatherDetails(name, lat, lon, country, state){
                 return uniqueForecastDays.push(forecastDate);
             }
         });
-        console.log(fiveDaysForecast);
-        fiveDaysForecastCard.innerHTML = '';
+        console.log(fiveDaysForecast);  // Check if filtering is working correctly
+
+        fiveDaysForecastCard.innerHTML = '';  // Clear previous content
+
+        // Check if the data is available before proceeding to render
         if (fiveDaysForecast.length > 0) {
             for (let i = 0; i < fiveDaysForecast.length; i++) {
                 let date = new Date(fiveDaysForecast[i].dt_txt);
