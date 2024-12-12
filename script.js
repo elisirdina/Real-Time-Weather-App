@@ -35,17 +35,17 @@ function getWeatherDetails(name, lat, lon, country, state){
         let date = new Date();
         currentWeatherCard.innerHTML = `
             <div class="current-weather">
-                <div class=""details">
+                <div class="details">
                     <p>Now</p>
                     <h2>${(data.main.temp - 273.15).toFixed(2)}&deg;C</h2>
                     <p>${data.weather[0].description}</p>
                 </div>
-                <div class=""weather-icon">
+                <div class="weather-icon">
                     <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="">
                 </div>
             </div>
             <hr>
-            <div class=""card-footer">
+            <div class="card-footer">
                 <p><i class="fa-light fa-calendar"></i> ${days[date.getDay()]}, ${date.getDate()}, ${months[date.getMonth()]} ${date.getFullYear()}</p>
                 <p><i class="fa-light fa-location-dot"></i> ${name}, ${country}</p>
             </div>
