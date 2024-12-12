@@ -5,8 +5,8 @@ currentWeatherCard = document.querySelectorAll('.weather-left .card')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast');
 
 function getWeatherDetails(name, lat, lon, country, state){
-    letFORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={api_key}`,
-    WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={api_key}`,
+    letFORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c014a189f4ff662dc25e56c2b086ae08`,
+    WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=c014a189f4ff662dc25e56c2b086ae08`,
     days = [
         'Sunday',
         'Monday',
@@ -85,7 +85,7 @@ function getCityCoordinates(){
     let cityName = cityInput.value.trim();
     cityInput.value = '';
     if(!cityName) return;
-    let GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid={api_key}`;
+    let GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=c014a189f4ff662dc25e56c2b086ae08`;
     fetch(GEOCODING_API_URL).then(res => res.json()).then(data => {
         let {name, lat, lon, country, state} = data[0];
         getWeatherDetails(name, lat, lon, country, state);
