@@ -154,7 +154,8 @@ function getWeatherDetails(name, lat, lon, country, state){
         let hourlyForecast = data.list;
         hourlyForecastCard.innerHTML = '';
         for(i = 0; i <= 7; i++){
-            let hrForecastDate.getHours();
+            let hrForecastDate = new Date(hourlyForecast[i].dt_txt);
+            let hr = hrForecastDate.getHours();
             let a = 'PM';
             if(hr < 12) a = 'AM';
             if(hr == 0) hr = 12;
