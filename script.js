@@ -134,23 +134,7 @@ function getWeatherDetails(name, lat, lon, country, state){
     });
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
-        let hourlyForecast = data.list;
-        hourlyForecastCard.innerHTML = '';
-        for(i = 0; i <= 7; i++){
-            let hrForecastDate = new Date(hourlyForecast[i].dt_txt);
-            let hr = hrForecastDate.getHours();
-            let a = 'PM';
-            if(hr < 12) a = 'AM';
-            if(hr == 0) hr = 12;
-            if(hr > 12) hr = hr -12;
-            hourlyForecastCard.innerHTML += `
-                <div class="card">
-                    <p>${hr} ${a}</p>
-                    <img src="https://openweathermap.org/img/wn/${hourlyForecast[i].weather[0].icon}.png" alt="">
-                    <p>${(hourlyForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</p>
-                </div>
-            `;
-        }
+        console.log(data);
         let uniqueForecastDays = [];
         let fiveDaysForecast = data.list.filter(forecast => {
             let forecastDate = new Date(forecast.dt_txt);
@@ -175,11 +159,6 @@ function getWeatherDetails(name, lat, lon, country, state){
                 </div>
             `;
         }
-        fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
-            console.log(data); // Add this to check the response structure
-            // Existing logic continues...
-        });
-        console.log(fiveDaysForecastCard);
     }).catch(() => {
         alert('Failed to fetch weather forecast');
     });
