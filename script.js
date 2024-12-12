@@ -178,16 +178,8 @@ function getWeatherDetails(name, lat, lon, country, state){
 }
 
 function getCityCoordinates(){
-    let lat = 23.8103;  // Example coordinates (Dhaka)
-    let lon = 90.4125;
-    let api_key = 'c014a189f4ff662dc25e56c2b086ae08';  // Replace with your actual API key
     let cityName = cityInput.value.trim();
-
     console.log(cityName);
-    // Log the values to the console
-    console.log('Latitude:', lat);
-    console.log('Longitude:', lon);
-    console.log('API Key:', api_key);
 }
 
 function getUserCoordinates(){
