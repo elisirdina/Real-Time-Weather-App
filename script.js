@@ -38,35 +38,35 @@ function getWeatherDetails(name, lat, lon, country, state){
                 <i class="fa-regular fa-wind fa-3x"></i>
                 <div class="item">
                     <p>PM2.5</p>
-                    <h2>{pm2_5}</h2>
+                    <h2>${pm2_5}</h2>
                 </div>
                 <div class="item">
                     <p>PM10</p>
-                    <h2>{pm10}</h2>
+                    <h2>${pm10}</h2>
                 </div>
                 <div class="item">
                     <p>SO2</p>
-                    <h2>{so2}</h2>
+                    <h2>${so2}</h2>
                 </div>
                 <div class="item">
                     <p>CO</p>
-                    <h2>{co}</h2>
+                    <h2>${co}</h2>
                 </div>
                 <div class="item">
                     <p>NO</p>
-                    <h2>{no}</h2>
+                    <h2>${no}</h2>
                 </div>
                 <div class="item">
                     <p>NO2</p>
-                    <h2>{no2}</h2>
+                    <h2>${no2}</h2>
                 </div>
                 <div class="item">
                     <p>NH3</p>
-                    <h2>{nh3}</h2>
+                    <h2>${nh3}</h2>
                 </div>
                 <div class="item">
                     <p>O3</p>
-                    <h2>{o3}</h2>
+                    <h2>${o3}</h2>
                 </div>
             </div>
         `;
