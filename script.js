@@ -145,21 +145,29 @@ function getWeatherDetails(name, lat, lon, country, state){
             }
             return false; // Exclude if already added
         });
-        fiveDaysForecastCard.innerHTML = '';
-        for(i = 0; i < fiveDaysForecast.length; i++){
-            let date = new Date(fiveDaysForecast[i].dt_txt);
-            fiveDaysForecastCard.innerHTML += `
-                <div class="forecast-item">
-                    <div class="icon-wrapper">
-                        <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" alt="">
-                        <span>${(fiveDaysForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</span>
+        console.log(fiveDaysForecast);
+        fiveDaysForecastCard.innerHTML = '';  // Clear previous content
+
+        // Check if the data is available before proceeding to render
+        if (fiveDaysForecast.length > 0) {
+            for (let i = 0; i < fiveDaysForecast.length; i++) {
+                let date = new Date(fiveDaysForecast[i].dt_txt);
+                fiveDaysForecastCard.innerHTML += `
+                    <div class="forecast-item">
+                        <div class="icon-wrapper">
+                            <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" alt="">
+                            <span>${(fiveDaysForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</span>
+                        </div>
+                        <p>${date.getDate()} ${months[date.getMonth()]}</p>
+                        <p>${days[date.getDay()]}</p>
                     </div>
-                    <p>${date.getDate()} ${months[date.getMonth()]}</p>
-                    <p>${days[date.getDay()]}</p>
-                </div>
-            `;
+                `;
+            }
+        } else {
+            console.log('No forecast data available.');
         }
-    }).catch(() => {
+    })
+    .catch(() => {
         alert('Failed to fetch weather forecast');
     });
 }
