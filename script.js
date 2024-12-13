@@ -141,7 +141,7 @@ function getWeatherDetails(name, lat, lon, country, state){
             if(!uniqueForecastDays.includes(forecastDate)){
                 return uniqueForecastDays.push(forecastDate);
             }
-        });
+        }).slice(0, 5);
         fiveDaysForecastCard.innerHTML = '';
         if (fiveDaysForecast.length > 0) {
             for (let i = 0; i < fiveDaysForecast.length; i++) {
