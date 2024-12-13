@@ -139,8 +139,10 @@ function getWeatherDetails(name, lat, lon, country, state){
         for(i = 0; i <= 7; i++){
             let hrForecastDate = new Date(hourlyForecast[i].dt_txt);
             let hr = hrForecastDate.getHours();
-            let a = hr >= 12 ? 'PM' : 'AM';
-            hr = hr % 12 || 12; // Convert to 12-hour format
+            let a = 'PM';
+            if(hr < 12) a = 'AM';
+            if(hr == 0) hr = 12;
+            if(hr > 12) hr = hr -12;
             hourlyForecastCard.innerHTML += `
                 <div class="card">
                     <p>${hr} ${a}</p>
