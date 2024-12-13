@@ -184,17 +184,13 @@ hr{
                 justify-content: space-between;
             }
         }
-        & .hourly-forecast {
+        & .hourly-forecast{
             display: grid;
-            grid-template-columns: repeat(8, 1fr); /* Ensures 8 equal columns */
-            column-gap: 10px; /* Adds spacing between columns */
-            align-items: center; /* Aligns the items vertically */
-        }
-        & .hourly-forecast .card {
-            text-align: center; /* Centers the content inside each card */
-            padding: 10px; /* Optional: Adds some padding for styling */
-            background-color: #2b2b2b; /* Optional: Adds background color for better visibility */
-            border-radius: 5px; /* Optional: Adds rounded corners */
+            grid-template-columns: repeat(8, 1fr);
+            column-gap: 10px;
+            & .card{
+                text-align:center
+            }
         }
     }
 }
