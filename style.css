@@ -188,9 +188,9 @@ hr{
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             column-gap: 10px;
-            & .card{
-                text-align:center
-            }
+        }
+        .hourly-forecast .card {
+            text-align: center;
         }
     }
 }
