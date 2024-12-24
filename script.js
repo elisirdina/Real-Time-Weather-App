@@ -27,11 +27,12 @@ function getWeatherDetails(name, lat, lon, country, state){
 
     fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
         let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
+        let aqi = data.list[0].main.aqi; // Get the AQI value
         aqiCard.innerHTML = `
             <div class="card-head">
                 <p>Air Quality Index</p>
                 <p class="air-index">
-                    <span class="aqi-${data.list[0].main.temp}">${aqiList[data.list[0].main.aqi -1]}</span>
+                    <span class="aqi-${aqi}">${aqiList[aqi - 1]}</span>
                 </p>
             </div>
             <div class="air-indices">
