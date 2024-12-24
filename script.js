@@ -26,6 +26,7 @@ function getWeatherDetails(name, lat, lon, country, state){
     ];
 
     fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
+        console.log('Air Pollution Data:', data);
         let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
         let aqi = data.list[0].main.aqi; // Get the AQI value
         
