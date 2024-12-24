@@ -4,14 +4,14 @@ locationBtn = document.getElementById('locationBtn'),
 api_key = 'c014a189f4ff662dc25e56c2b086ae08',
 currentWeatherCard = document.querySelectorAll('.weather-left .card')[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
-aqiCard = document.querySelector('.highlights .card.aqi'), // Updated selector
+aqiCard = document.querySelectorAll('.highlights .cardaqi'), // Updated selector
 sunriseCard = document.querySelectorAll('.highlights .card')[1],
 humidityVal = document.getElementById('humidityVal'),
 pressureVal = document.getElementById('pressureVal'),
 visibilityVal = document.getElementById('visibilityVal'),
 windSpeedVal = document.getElementById('windSpeedVal'),
 feelsVal = document.getElementById('feelsVal'),
-hourlyForecastCard = document.querySelector('.hourly-forecast'),
+hourlyForecastCard = document.querySelectorAll('.weather-right .hourly-forecast .card'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
