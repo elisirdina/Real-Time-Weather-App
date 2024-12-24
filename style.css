@@ -189,20 +189,10 @@ hr{
             grid-template-columns: repeat(8, 1fr);
             column-gap: 10px;
         }
-        .hourly-forecast .card {
-            text-align: center;
+            & .card{
+                text-align:center
+            }
         }
-    }
-}
-@media (max-width: 1100px) {
-    .hourly-forecast {
-        grid-template-columns: repeat(4, 1fr); /* Adjust to 4 items in a row for smaller screens */
-    }
-}
-
-@media (max-width: 600px) {
-    .hourly-forecast {
-        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 items in a row for even smaller screens */
     }
 }
 @media(max-width: 1100px){
