@@ -25,7 +25,12 @@ function getWeatherDetails(name, lat, lon, country, state){
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
 
-    fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
+    fetch(AIR_POLLUTION_API_URL).then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    }).then(data => {
         let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
         let aqi = data.list[0].main.aqi; // Get the AQI value
         
@@ -72,7 +77,8 @@ function getWeatherDetails(name, lat, lon, country, state){
                 </div>
             </div>
         `;
-    }).catch(() => {
+    }).catch(error => {
+        console.error('Failed to fetch Air Quality Index:', error);
         alert('Failed to fetch Air Quality Index');
     });
 
