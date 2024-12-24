@@ -25,64 +25,52 @@ function getWeatherDetails(name, lat, lon, country, state){
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
 
-    fetch(AIR_POLLUTION_API_URL).then(res => {
-        if (!res.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return res.json();
-    }).then(data => {
+    fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
         let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
-        let aqi = data.list[0].main.aqi; // Get the AQI value
-        
-        if (aqiCard) { // Check if aqiCard is defined
-            aqiCard.innerHTML = `
-                <div class="card-head">
-                    <p>Air Quality Index</p>
-                    <p class="air-index">
-                        <span class="aqi-${aqi}">${aqiList[aqi - 1]}</span>
-                    </p>
+        aqiCard.innerHTML = `
+            <div class="card-head">
+                <p>Air Quality Index</p>
+                <p class="air-index">
+                    <span class="aqi-${data.list[0].main.temp}">${aqiList[data.list[0].main.aqi -1]}</span>
+                </p>
+            </div>
+            <div class="air-indices">
+                <i class="fa-regular fa-wind fa-3x"></i>
+                <div class="item">
+                    <p>PM2.5</p>
+                    <h2>${pm2_5}</h2>
                 </div>
-                <div class="air-indices">
-                    <i class="fa-regular fa-wind fa-3x"></i>
-                    <div class="item">
-                        <p>PM2.5</p>
-                        <h2>${pm2_5}</h2>
-                    </div>
-                    <div class="item">
-                        <p>PM10</p>
-                        <h2>${pm10}</h2>
-                    </div>
-                    <div class="item">
-                        <p>SO2</p>
-                        <h2>${so2}</h2>
-                    </div>
-                    <div class="item">
-                        <p>CO</p>
-                        <h2>${co}</h2>
-                    </div>
-                    <div class="item">
-                        <p>NO</p>
-                        <h2>${no}</h2>
-                    </div>
-                    <div class="item">
-                        <p>NO2</p>
-                        <h2>${no2}</h2>
-                    </div>
-                    <div class="item">
-                        <p>NH3</p>
-                        <h2>${nh3}</h2>
-                    </div>
-                    <div class="item">
-                        <p>O3</p>
-                        <h2>${o3}</h2>
-                    </div>
+                <div class="item">
+                    <p>PM10</p>
+                    <h2>${pm10}</h2>
                 </div>
-            `;
-        } else {
-            console.error('AQI card element not found');
-        }
-    }).catch(error => {
-        console.error('Failed to fetch Air Quality Index:', error);
+                <div class="item">
+                    <p>SO2</p>
+                    <h2>${so2}</h2>
+                </div>
+                <div class="item">
+                    <p>CO</p>
+                    <h2>${co}</h2>
+                </div>
+                <div class="item">
+                    <p>NO</p>
+                    <h2>${no}</h2>
+                </div>
+                <div class="item">
+                    <p>NO2</p>
+                    <h2>${no2}</h2>
+                </div>
+                <div class="item">
+                    <p>NH3</p>
+                    <h2>${nh3}</h2>
+                </div>
+                <div class="item">
+                    <p>O3</p>
+                    <h2>${o3}</h2>
+                </div>
+            </div>
+        `;
+    }).catch(() => {
         alert('Failed to fetch Air Quality Index');
     });
 
