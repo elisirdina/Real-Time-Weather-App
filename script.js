@@ -3,7 +3,7 @@ searchBtn = document.getElementById('searchBtn'),
 locationBtn = document.getElementById('locationBtn'),
 api_key = 'c014a189f4ff662dc25e56c2b086ae08',
 currentWeatherCard = document.querySelectorAll('.weather-left .card')[0],
-fiveDaysForecastCard = document.querySelector('.weather-left .day-forecast .forecast-item'),
+fiveDaysForecastCard = document.querySelector('.weather-left .day-forecast'),
 aqiCard = document.querySelector('.highlights .card.aqi'), // Updated selector
 sunriseCard = document.querySelectorAll('.highlights .card')[1],
 humidityVal = document.getElementById('humidityVal'),
@@ -134,6 +134,7 @@ function getWeatherDetails(name, lat, lon, country, state){
     });
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
+        console.log(data);
         let hourlyForecast = data.list;
         hourlyForecastCard.innerHTML = '';
         for(i = 0; i <= 7; i++){
