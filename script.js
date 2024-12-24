@@ -11,7 +11,7 @@ pressureVal = document.getElementById('pressureVal'),
 visibilityVal = document.getElementById('visibilityVal'),
 windSpeedVal = document.getElementById('windSpeedVal'),
 feelsVal = document.getElementById('feelsVal'),
-hourlyForecastCard = document.querySelector('.hourly-forecast'),
+hourlyForecastCard = document.querySelector('.weather-right .hourly-forecast'),
 aqiList = ['Good', 'Fair', 'Moderate', 'Poor', 'Very Poor'];
 
 function getWeatherDetails(name, lat, lon, country, state){
